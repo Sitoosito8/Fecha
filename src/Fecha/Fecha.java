@@ -133,11 +133,11 @@ class Fecha {
 	 * @return String
 	 */
 	public String getDiaSemana() {
-		if (dia==1 && mes == 1 && anyo == 1){
+		if (dia == 1 && mes == 1 && anyo == 1){
 			return DIAS_TEXTO[1];
 		}else {
 			int dias=getDiasTranscurridosAnyo()%7;
-			dias+=1;
+			dias += 1;
 			if (dias == 7){
 				return DIAS_TEXTO[0];
 			}
