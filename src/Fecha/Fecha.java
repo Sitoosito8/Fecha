@@ -199,7 +199,13 @@ class Fecha {
 	 * @return int
 	 */
 	private int getDiasTranscurridosOrigen() {
-		return 0;
+		int anyo_trans = anyo - 1;
+		int total = 0;
+		while (dia != 1 && mes != 1 && anyo != 1) {
+			total += getDiasAnyo(anyo_trans);
+		}
+		total=total+getDiasTranscurridosAnyo();
+		return total;
 	}
 
 	/**
@@ -208,13 +214,23 @@ class Fecha {
 	 * @return int
 	 */
 	private int getDiasTranscurridosAnyo() {
-		int anyo_trans=anyo-1;
-		int total=0;
-		while (dia != 1 && mes != 1 && anyo !=1) {
-			total += getDiasAnyo(anyo_trans);
+
+			int dias_total=0;
+			int dia=getDia();
+			int mes=getMes();
+			while (this.dia == 1 && this.mes == 1 ){
+				while (dia != 1 ){
+					dia--;
+					dias_total++;
+				}
+				if (mes != 1){
+					mes--;
+				}
+				dia=getDiasMes(mes,anyo);
+			}
+			return dias_total;
 		}
-		return total;
-	}
+
 
 	/**
 	 * Indica si el año pasado como argumento es bisiesto
