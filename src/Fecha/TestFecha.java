@@ -5,7 +5,7 @@ public class TestFecha {
         mostrar1();
     }
     public static void mostrar1(){
-        Fecha fec1=new Fecha(16,01,2021);
+        Fecha fec1=new Fecha(16,1,2021);
         fec1.mostrarFormatoES();
         fec1.mostrarFormatoGB();
         fec1.mostrarFormatoTexto();
