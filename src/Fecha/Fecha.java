@@ -291,4 +291,10 @@ class Fecha {
 			return 365;
 		}
 	}
+	public Fecha Clone(Fecha fec){
+		fec.dia=this.dia;
+		fec.mes=this.mes;
+		fec.anyo=this.anyo;
+		return fec;
+	}
 }
