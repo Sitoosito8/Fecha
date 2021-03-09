@@ -10,7 +10,7 @@ public class TestFecha {
         fec1.mostrarFormatoGB();
         fec1.mostrarFormatoTexto();
         System.out.println("La fecha e correcta :"+fec1.isCorrecta());
-        System.out.println("La fecha es festivo"+fec1.isFestivo());
-        fec1.getDiaSemana();
+        System.out.println("La fecha es festivo :"+fec1.isFestivo());
+        System.out.println("El dia de la semana es :"+fec1.getDiaSemana());
     }
 }

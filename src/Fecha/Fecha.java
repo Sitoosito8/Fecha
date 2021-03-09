@@ -133,7 +133,16 @@ class Fecha {
 	 * @return String
 	 */
 	public String getDiaSemana() {
-		return null;
+		if (dia==1 && mes ==1 && anyo ==1){
+			return DIAS_TEXTO[1];
+		}else {
+			int dias=getDiasTranscurridosAnyo()%7;
+			dias+=1;
+			if (dias == 7){
+				return DIAS_TEXTO[0];
+			}
+			return DIAS_TEXTO[dias];
+		}
 	}
 
 	/**
@@ -141,7 +150,7 @@ class Fecha {
 	 * @return boolean
 	 */
 	public boolean isFestivo() {
-		if (getDiaSemana().equals("domingo") || getDiaSemana().equals("sabado")){
+		if (DIAS_TEXTO[dia%7].equals("sabado") ||DIAS_TEXTO[dia%7].equals("domingo")){
 			return true;
 		}else {
 			return false;
@@ -222,7 +231,8 @@ class Fecha {
 	 *  @return int total dias mes en curso
 	 */
 	private int getDiasMes(int mes, int anyo) {
-		int mes_febrero=0;
+		int calc_mes=0;
+		int mes_febrero;
 		if (isBisiesto(anyo)){
 			mes_febrero=29;
 		}else {
@@ -230,11 +240,22 @@ class Fecha {
 		}
 		if (MESES_TEXTO[mes].equals("febrero")){
 			for (int i = 0; i < mes_febrero; i++) {
+				calc_mes++;
+			}
+		}
+		if (MESES_TEXTO[mes].equals("enero") ||MESES_TEXTO[mes].equals("marzo") || MESES_TEXTO[mes].equals("mayo") || MESES_TEXTO[mes].equals("julio") || MESES_TEXTO[mes].equals("agosto") ||MESES_TEXTO[mes].equals("diciembre")){
+			for (int i = 0; i < 31; i++) {
+				calc_mes++;
+			}
 
+		}
+		if (MESES_TEXTO[mes].equals("abril") || MESES_TEXTO[mes].equals("junio") || MESES_TEXTO[mes].equals("septiembre") || MESES_TEXTO[mes].equals("noviembre")){
+			for (int i = 0; i < 30; i++) {
+				calc_mes++;
 			}
 		}
 
-		return 0;
+		return calc_mes;
 	}
 
 	/**
